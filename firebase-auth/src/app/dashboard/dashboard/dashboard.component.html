@@ -1,0 +1,31 @@
+<button class="btn btn-secondary" (click)="logout()">Logout</button>
+<div class="row mt-5">
+  <div class="col-8 offset-2">
+    <h3 class="text-center">Tüm kullanıcıların listesi</h3>
+    <table class="table table-stripeds">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">İsim Soyisim</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ user.displayName }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button class="btn btn-warning me-3" (click)="setAdmin(user.uid)">
+              Admin Yap
+            </button>
+            <button class="btn btn-danger" (click)="deleteUser(user.uid)">
+              Sil
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
